@@ -1,5 +1,5 @@
 * Simple HTTP Server
-  This server is used for the [[https://github.com/SilverSailors/SailingBoat][Sailingboat Application]], but not really
+  This server is used for the [[https://github.com/SilverSailors/SailingBoat][Sailingboat Project]], but not really
   used by it, it only reads logs from it.
 
   And it uses HTTP requests as a means of delivering JSON data to a
