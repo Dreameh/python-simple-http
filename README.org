@@ -1,0 +1,22 @@
+* Simple HTTP Server
+  This server is used for the [[https://github.com/SilverSailors/SailingBoat][Sailingboat Application]], but not really
+  used by it, it only reads logs from it.
+
+  And it uses HTTP requests as a means of delivering JSON data to a
+  log website.
+
+  it can handle POST requests as well in order to update a destination
+  file, therefore it can easy get a new location even if the user is
+  not close to the sailboat.
+
+  Additionally, it can receive a DELETE request which will delete the
+  current content inside whatever file is the requested target, it's
+  simply a matter of adding the name of the file and it will be
+  deleted.
+
+* Prerequisites
+  This application uses Python 3, it does not need any extra libraries
+  to be downloaded.
+
+* License
+  This software is licensed under the [[https://github.com/Dreameh/python-simple-http/LICENSE.org][MIT]] license.
