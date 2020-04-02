@@ -74,7 +74,6 @@ if __name__ == "__main__":
        else:
            run()
    except KeyboardInterrupt:
-       print("server memory usage:", resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
        print("Interrupted")
        try:
            sys.exit(0)
