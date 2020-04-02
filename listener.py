@@ -28,7 +28,7 @@ class Server(requestHandler):
         self._set_headers()
         # Read JSON file
         with open('some_json.json', 'r') as data:
-            self.wfile.write(bytes(data.read().encode("utf-8")))
+            self.wfile.write(bytes(data.read(), "utf-8"))
 
     def do_POST(self):
         ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
@@ -51,7 +51,7 @@ class Server(requestHandler):
         message['received'] = 'ok'
         # Send back message
         self._set_headers()
-        self.wfile.write(bytes(json.dumps(message).encode("utf-8")))
+        self.wfile.write(bytes(json.dumps(message), "utf-8"))
 
     def do_DELETE(self):
         print("this is working")
