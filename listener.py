@@ -16,12 +16,24 @@ def delete_content(name):
 class Server(requestHandler):
     # Set headers with content-type: 'application/json'
     def _set_headers(self):
-        self.send_response(200)
+        self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST, DELETE')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.send_header('Content-type', 'application/json')
         self.end_headers()
 
     def do_HEAD(self):
         self._set_headers()
+
+    def do_OPTIONS(self):
+        self.send_response(200, "ok")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST, DELETE')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
 
     # GET sends back the json object
     def do_GET(self):
@@ -46,7 +58,7 @@ class Server(requestHandler):
 
         # Open destination file and append new coordinates
         with open('dest.txt', 'a') as data:
-            data.write(message['lat'] + '\n' + message['long'])
+            data.write('\n' + message['latitude'] + '\n' + message['longitude'])
 
         message['received'] = 'ok'
         # Send back message
